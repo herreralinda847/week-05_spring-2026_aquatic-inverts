@@ -1,5 +1,0 @@
----
-title: "in-class-template"
-author: "Linda Herrera"
-format: pdf
----
