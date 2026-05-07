@@ -20,6 +20,9 @@ library(here)
 library(janitor)
 library(snakecase)
 
+# wrapping axis labels
+library(scales)
+
 # reading in .xlsx files
 library(readxl)
 
@@ -193,10 +196,48 @@ ostracod <- aq_ins_clean |>
 slice_sample(ostracod, n = 10)
 ```
 
-
 ### c. Code your figure
 
+```{r}
+#| label: visualizing-ostracod-plot
+#| message: false
+#| warning: false
+
+# creating the ostracod figure
+ostracod_plot <- ggplot(data = ostracod,
+                        # x-axis: site
+                        # # y-axis: mean abundance/L
+                        mapping = aes(x = site_full,
+                                      y = log_ave_lit)) +
+  # first layer: individual observations as open circles
+  geom_jitter(height = 0,
+              shape = 21,
+              width = 0.1) +
+  # second layer: median as a filled blue diamond
+  stat_summary(geom = "point",
+               fun = "median",
+                size = 4,
+               color = "blue",
+               shape = 18) + # 18 = filled diamond
+  # wrapping x-axis text
+  scale_x_discrete(labels = label_wrap(15)) +
+  # axis labels and title
+  labs(x = "Site",
+       y = "log + 1 transformed average abundance/L",
+       title = "Ostracods") +
+  # different theme
+  theme_bw()
+
+# displaying object
+ostracod_plot
+```
+
 ### d. Create a multipanel figure
+
+```{r}
+
+
+```
 
 ### e. Interpret your figure
 
