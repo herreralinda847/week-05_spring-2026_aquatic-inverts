@@ -177,6 +177,23 @@ aq_ins_clean <- aq_ins |>
 
 ### b. Wrangle your data
 
+```{r}
+#| label: wrangling-ostracod
+#| message: false
+#| warning: false
+
+# creating new object from clean aquatic inverts 
+ostracod <- aq_ins_clean |> 
+  # filter to only include ostracods
+  filter(taxon == "ostracod") |> 
+  # log + 1 transform mean abundance per liter
+  mutate(log_ave_lit = log(ave_lit + 1)) 
+
+# display 10 random rows
+slice_sample(ostracod, n = 10)
+```
+
+
 ### c. Code your figure
 
 ### d. Create a multipanel figure
