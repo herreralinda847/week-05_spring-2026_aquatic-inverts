@@ -5,9 +5,9 @@ author: "Linda Herrera"
 format: pdf
 ---
 
-# 1. Set up
+## Set up
 
-## Packages
+### Packages
 
 ```{r}
 #| label: packages
@@ -27,7 +27,7 @@ library(readxl)
 library(patchwork)
 ```
 
-## Data
+### Data
 
 ```{r}
 #| label: data
@@ -51,9 +51,9 @@ water_quality <- read_xlsx(here("data", "Aquatic Sampling Data-2026-03-10.xlsx")
                            na = c("", "n/a", "N/A", "over", "173+")) 
 ```
 
-# 2. Cleaning
+### Cleaning
 
-## `sites` object
+#### `sites` object
 
 ```{r}
 #| label: ncos-site-object
@@ -65,7 +65,7 @@ ncos_sites <- sites |>
   filter(sector == "NCOS" & sampling_frequency == "Quarterly")
 ```
 
-## `taxon_list` object
+#### `taxon_list` object
 
 ```{r}
 #| label: cleaning-taxon-list
@@ -78,7 +78,7 @@ taxon_list_clean <- taxon_list |>
   mutate(verbatim_name = to_any_case(verbatim_name, case = "snake"))
 ```
 
-## `water_quality` object
+#### `water_quality` object
 
 ```{r}
 #| label: water-quality-cleaning
@@ -104,7 +104,7 @@ water_quality_clean <- water_quality |>
   filter(date_site != "2022-08-12_NVBR") 
 ```
 
-## `aq_ins` object
+#### `aq_ins` object
 
 ```{r}
 #| label: cleaning-aq-ins
@@ -164,7 +164,29 @@ aq_ins_clean <- aq_ins |>
          site_full = fct_rev(site_full))
 ```
 
+## Problems
 
+## 1. Visualizing differences across sites in major taxon abundance
+
+### a. Plan your figure
+
+### b. Wrangle your data
+
+### c. Code your figure
+
+### d. Create a multipanel figure
+
+### e. Interpret your figure
+
+## 2. Visualizing total abundance as a function of salinity
+
+### a. Plan your figure
+
+### b. Wrangle your data
+
+### c. Code your figure
+
+### d. Interpret your figure
 
 
 
