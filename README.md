@@ -22,12 +22,14 @@ library(patchwork)
 ```
 .
 ├── README.md
-├── code                                          
-│   ├── week-05_in-class-KEY.pdf                  # key (comes with repo)
+├── code
+│   ├── herrera_linda_individual-assignment-05.pdf.  # individual assignment 5
+│   └── herrera_linda_individual-assignment-05.qmd
+│   ├── week-05_in-class-KEY.pdf                     # key (comes with repo)
 │   └── week-05_in-class-KEY.qmd
 ├── data
-│   ├── Aquatic Sampling Data-2026-03-10.xlsx     # invertebrate survey data
-│   └── taxon_list.csv                            # taxonomic information
+│   ├── Aquatic Sampling Data-2026-03-10.xlsx        # invertebrate survey data
+│   └── taxon_list.csv                               # taxonomic information
 └── week-05_spring-2026_aquatic-inverts.Rproj
 ```
 
@@ -36,5 +38,8 @@ library(patchwork)
 The rendered key for the code in this repository is [here](https://github.com/herreralinda847/week-05_spring-2026_aquatic-inverts/blob/main/code/week-05_in-class-KEY.pdf).
 
 The rendered document from class is [here](https://github.com/herreralinda847/week-05_spring-2026_aquatic-inverts/blob/main/code/week-05_in-class-KEY.pdf).
+
+The rendered individual assignment 5 is 
+[here](https://github.com/herreralinda847/week-05_spring-2026_aquatic-inverts/blob/main/code/herrera_linda_individual-assignment-05.pdf).
 
 
