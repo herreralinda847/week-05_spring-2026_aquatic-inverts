@@ -170,6 +170,11 @@ aq_ins_clean <- aq_ins |>
 
 ### a. Plan your figure
 
+- x-axis: site
+- y-axis: average abundance/L
+- geometry to represent average abundance/L: `geom_jitter()`
+- geometry to represent medians: `stat_summary()`
+
 ### b. Wrangle your data
 
 ### c. Code your figure
