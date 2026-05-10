@@ -191,7 +191,7 @@ salinity <- ggplot(data = aq_ins_clean,
               size = 2) +
   # wrapping x-axis text
   scale_x_discrete(labels = label_wrap(width = 15)) +
-  # second layer: points to represent means
+  # second layer: points to represent median
   stat_summary(fun = median,
                color = "tomato",
                size = 1,
@@ -339,6 +339,14 @@ salinity/ ( copepods + ostracod_plot )
 ```
 
 ### e. Interpret your figure
+
+- Differences between sites in copepod and ostracod abundance:
+
+Copepod abundance was highest at South of Venoco Bridge with a median above 3, while ostracod abundance peaked at South of Phelps Bridge with a median above 2. Overall, ostracods had lower median abundance than copepods at every site, suggesting copepods are the more dominant group across this system.
+
+- How ostracod abundance may relate to salinity:
+
+Ostracod abundance does not show a clear relationship with salinity — while most sites had low ostracod abundance regardless of their salinity level, South of Phelps Bridge had the highest ostracod abundance despite having low salinity (below 7 ppt), similar to several other low-salinity sites where ostracods remained scarce. This suggests that salinity alone does not explain the variation in ostracod abundance across sites, and other environmental factors may be at play.
 
 ## 2. Visualizing total abundance as a function of salinity
 
