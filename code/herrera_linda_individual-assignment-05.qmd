@@ -352,13 +352,29 @@ Ostracod abundance does not show a clear relationship with salinity — while mo
 
 ### a. Plan your figure
 
-- x-axis: salinity
-- y-axis: log + 1 transformed average abundance/L
-- color: taxon
+- x-axis: `med_sal`
+- y-axis: `log_ave_li`
+- color: `taxon`
 - geometry: `geom_point()`
 - facets: `facet_wrap(~ taxon, scales = "free")`
 
 ### b. Wrangle your data
+
+```{r}
+#| label: modifying the aq-ins-clean
+#| message: false
+#| warning: false
+
+# modify the aq_ins_clean data frame
+aq_ins_clean <- aq_ins_clean |> 
+  # convert taxon to title case
+  mutate(taxon = str_to_title(taxon),
+         # reorder taxon factor levels by maximum abundance
+         taxon = fct_reorder(taxon, ave_lit, .fun = max))
+
+# display 10 random rows
+slice_sample(aq_ins_clean, n = 10)
+```
 
 ### c. Code your figure
 
