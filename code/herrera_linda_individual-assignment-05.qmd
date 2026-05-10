@@ -187,13 +187,15 @@ salinity <- ggplot(data = aq_ins_clean,
   # first layer: salinity measurements at each survey
   geom_jitter(height = 0,
               shape = 21,
-              width = 0.1) +
+              width = 0.1,
+              size = 2) +
   # wrapping x-axis text
   scale_x_discrete(labels = label_wrap(width = 15)) +
   # second layer: points to represent means
   stat_summary(fun = median,
                color = "tomato",
-               size = 1) +
+               size = 1,
+               shape = 18) + # 18 = filled diamond
   # relabelling x- and y-axes
   labs(x = "Site",
        y = "Median salinity (ppt)",
@@ -234,7 +236,8 @@ copepods <- ggplot(data = copepods,
   # first layer: points to represent observations
   geom_jitter(height = 0,
               shape = 21,
-              width = 0.1) +
+              width = 0.1,
+              size = 2) +
   # second layer: points to represent medians
   stat_summary(geom = "point",
                fun = "median",
@@ -301,11 +304,12 @@ ostracod_plot <- ggplot(data = ostracod,
   # first layer: individual observations as open circles
   geom_jitter(height = 0,
               shape = 21,
-              width = 0.1) +
+              width = 0.1,
+              size = 2) +
   # second layer: median as a filled blue diamond
   stat_summary(geom = "point",
                fun = "median",
-                size = 4,
+               size = 4,
                color = "tomato",
                shape = 18) + # 18 = filled diamond
   # wrapping x-axis text
@@ -324,8 +328,14 @@ ostracod_plot
 ### d. Create a multipanel figure
 
 ```{r}
+#| label: patchwork
+#| message: false
+#| warning: false
+#| fig-height: 8
+#| fig-width: 10
 
-
+# combining the figures together 
+salinity/ ( copepods + ostracod_plot ) 
 ```
 
 ### e. Interpret your figure
