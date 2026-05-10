@@ -414,8 +414,5 @@ ggplot(data = aq_ins_clean,
 
 ### d. Interpret your figure
 
-
-
-
-
+Copepods and ostracods both displayed a tall, dense vertical scatter of points concentrated on the left side of the graph (salinity 0–10), indicating peak abundance at low salinities, though copepods uniquely showed a secondary cluster of high abundance points at approximately salinity 40, distinguishing them from all other taxa. In contrast, nematodes, annelid oligochaetes, cladocerans, diptera chironomids, and annelid polychaetes all showed a flat, compressed scatter pattern hugging the x-axis across the entire salinity range, suggesting consistently low abundance regardless of salinity. The vertical spread of copepod and ostracod points at low salinity was notably taller than any scatter observed in the remaining taxa, indicating their maximum abundances were substantially higher overall. Ostracods and the low-abundance taxa were similar in showing no rebound at higher salinities, whereas copepods were the only taxon whose scatter pattern suggested a second peak.
 
