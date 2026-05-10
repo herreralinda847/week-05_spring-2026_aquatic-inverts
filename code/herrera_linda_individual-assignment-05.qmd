@@ -352,6 +352,12 @@ Ostracod abundance does not show a clear relationship with salinity — while mo
 
 ### a. Plan your figure
 
+- x-axis: salinity
+- y-axis: log + 1 transformed average abundance/L
+- color: taxon
+- geometry: `geom_point()`
+- facets: `facet_wrap(~ taxon, scales = "free")`
+
 ### b. Wrangle your data
 
 ### c. Code your figure
