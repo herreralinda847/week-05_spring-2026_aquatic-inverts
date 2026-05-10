@@ -28,6 +28,9 @@ library(readxl)
 
 # arranging plots
 library(patchwork)
+
+# coloring
+library(wesanderson)
 ```
 
 ### Data
@@ -368,15 +371,46 @@ Ostracod abundance does not show a clear relationship with salinity — while mo
 # modify the aq_ins_clean data frame
 aq_ins_clean <- aq_ins_clean |> 
   # convert taxon to title case
-  mutate(taxon = str_to_title(taxon),
-         # reorder taxon factor levels by maximum abundance
-         taxon = fct_reorder(taxon, ave_lit, .fun = max))
+  mutate(log_ave_lit = log(ave_lit + 1), # log + 1 transform average abundance per liter
+    taxon = str_to_sentence(taxon), # sentence case - only first letter capitalized
+    taxon = str_replace_all(taxon, "_", " "), # replace underscores with spaces
+    taxon = fct_reorder(taxon, ave_lit, .fun = max)) # reorder taxon factor levels by maximum abundance
 
 # display 10 random rows
 slice_sample(aq_ins_clean, n = 10)
 ```
 
 ### c. Code your figure
+
+```{r}
+#| label: visual
+#| message: false
+#| warning: false
+#| fig-height: 6
+#| fig-width: 8
+
+# start with aq_ins_clean data frame
+ggplot(data = aq_ins_clean,
+       mapping = aes(x = med_sal, # x-axis: salinity in ppt
+                     y = log_ave_lit,  # y-axis: log + 1 transformed average abundance/L
+                     color = taxon)) + # color by the taxon
+  # points to show relationship between salinity and abundance
+  geom_point(alpha = 0.6) +
+  # separate panel for each taxon with free scales on both axes
+  facet_wrap(~ taxon, scales = "free") +
+  # readable axis labels
+  labs(x = "Salinity (ppt)",
+       y = "log + 1 transformed average abundance/L",
+       title = "Invertebrate Abundance as a Function of Salinity") +
+  # different theme
+  theme_bw() +
+  # different colors from default
+  scale_color_manual(values = wes_palette("Cavalcanti1",
+                                          n = n_distinct(aq_ins_clean$taxon),
+                                          type = "continuous")) +
+  # remove legend
+  theme(legend.position = "none")
+```
 
 ### d. Interpret your figure
 
