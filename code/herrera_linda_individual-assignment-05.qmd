@@ -254,7 +254,9 @@ copepods <- ggplot(data = copepods,
        y = "log + 1 transformed average abundance/L",
        title = "Copepods") +
   # different theme
-  theme_bw()
+  theme_bw() +
+  # making the x-axis text smaller 
+  theme(axis.text.x = element_text(size = 6))
 
 # displaying object
 copepods
@@ -322,7 +324,9 @@ ostracod_plot <- ggplot(data = ostracod,
        y = "log + 1 transformed average abundance/L",
        title = "Ostracods") +
   # different theme
-  theme_bw()
+  theme_bw() + 
+  # making the x-axis text smaller 
+  theme(axis.text.x = element_text(size = 6))
 
 # displaying object
 ostracod_plot
